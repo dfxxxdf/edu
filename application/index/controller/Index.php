@@ -1,11 +1,10 @@
 <?php
 namespace app\index\controller;
-
-class Index
+use app\index\controller\Base;
+class Index extends Base
 {
     public function index()
     {
-//        return '我开发的ThinkPHP5.0.10完整版项目内容，努力，加油';
-      return this.view('index');
+      return $this -> view -> fetch('index');
     }
 }
