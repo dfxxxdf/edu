@@ -2,6 +2,8 @@
 namespace app\index\controller;
 use app\index\controller\Base;
 use think\Request;
+use app\index\model\User as UserModel;
+
 class User extends Base
 {
   public function login(){
@@ -16,9 +18,42 @@ class User extends Base
     //初始返回参数（默认值为0）
     $status = 0; //0也就是请求失败了，没有通过验证
     $result = ''; //返回错误的信息
+    //这里是我们拿到的请求数据，数据是从login.html中拿的界面中输入获取的
     $data = $request -> param();
+    //创建验证规则
+    $rule = [
+     'name|用户名'=>'require', //用户名必填
+     'password|密码'=>'require', //密码必填
+     'verify|验证码'=>'require|captcha', //验证码名必填|并且直接验证
+    ];
+    //自定义验证失败的提示信息
+    $msg=[
+      'name' => ['require'=>'用户名不能为空，请检查'],
+      'password' => ['require'=>'密码不能为空，请检查'],
+      'verify' => ['require'=>'验证码不能为空，请检查'],
+    ];
+
+    //进行验证
+    $result = $this ->validate($data,$rule,$msg);
+
+    //如果验证通过则执行
+    if($result === true){
+      //构造查询条件
+      $map = [
+        'name' => $data['name'],
+        'password' => md5($data['password']),//因为数据库中是md5加密的，所以密码在这里也要加密
+      ];
+      //查询用户信息
+      $user = UserModel::get($map);
+      //
+    }
     // 返回到客户端的数据，这个数据要在login.html里接收
-    return ['status'=>$status, 'message'=>$request, 'data'=>$data];
+    return ['status'=>$status, 'message'=>$result, 'data'=>$data];
+
+
+
+
+
   }
   //退出登陆
   public function logout(){

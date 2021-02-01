@@ -82,13 +82,13 @@
 				 * data就是从User的checkLogin(Request $request)里return过来的数据
 				 * @param data
 				 */
-				success: function(data){ //吸有返回标志位为1的时候才进行处理
-					// 看看能否获取到数据
-					alert(data.status);
-					if(data.status==1){//只有返回状态值为1才允话跳转到后台
+				success: function(data){
+					// alert(data.status);// 看看能否获取到数据
+					//只有返回状态值为1才允话跳转到后台(以下大括号后面是不能写注释的)
+					if(data.status==1){
 						alert(data.message);//先弹出一个提示框，提醒用户登录成功
 						window.location.href="{:url('index/index')}"; //跳转到页面
-					}else{
+					}else{ //输出错误信息
 						alert(data.message);// 登录失败，输出错误信息
 					}
 				}
