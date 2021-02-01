@@ -42,8 +42,8 @@
 			<div class="row cl">
 				<div class="formControls col-xs-8 col-xs-offset-3">
 					<input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value=''}" onclick="if(this.value==''){this.value='';}" value="" style="width:150px;">
-					<img src="{:captcha_src()}">
-					<a id="kanbuq" href="javascript:;">看不清，换一张</a>
+					<img id="verity_img" src="{:captcha_src()}">
+					<a id="kanbuq"  href="javascript:refreshVerity();">看不清，换一张</a>
 				</div>
 			</div>
 			<div class="row cl">
@@ -84,6 +84,13 @@
 			});
 		})
 	})
+</script>
+<!--刷新验证码的脚本-->
+<script>
+	function refreshVerity(){
+		var ts = Date.parse(new Date())/1000;
+		$("#verity_img").attr("src","/captcha?id="+ts);//刷新验证码
+	}
 </script>
 </body>
 </html>
