@@ -30,12 +30,13 @@ class User extends Base
     $msg=[
       'name' => ['require'=>'用户名不能为空，请检查'],
       'password' => ['require'=>'密码不能为空，请检查'],
-      'verify' => ['require'=>'验证码不能为空，请检查'],
+      'verify' => [
+        'require'=>'验证码不能为空，请检查',
+        'captcha' => '验证码错误',
+      ],
     ];
-
     //进行验证
     $result = $this ->validate($data,$rule,$msg);
-
     //如果验证通过则执行
     if($result === true){
       //构造查询条件
@@ -45,7 +46,12 @@ class User extends Base
       ];
       //查询用户信息
       $user = UserModel::get($map);
-      //
+      if($user==null){
+        $result='没有找到该用户';
+      }else{
+        $status=1;
+        $result='验证通过，点击[确定]进入';
+      }
     }
     // 返回到客户端的数据，这个数据要在login.html里接收
     return ['status'=>$status, 'message'=>$result, 'data'=>$data];
