@@ -1,9 +1,8 @@
 <?php
 namespace app\index\controller;
-use app\index\controller\Base;
 use think\Request;
 use app\index\model\User as UserModel;
-
+use think\Session;
 class User extends Base
 {
   public function login(){
@@ -51,15 +50,13 @@ class User extends Base
       }else{
         $status=1;
         $result='验证通过，点击[确定]进入';
+        //用Session保存用户登陆信息
+        Session::set('user_id',$user->id); //保存的是用户的ID
+        Session::set('user_info',$user->getData()); //获取用户所有信息
       }
     }
     // 返回到客户端的数据，这个数据要在login.html里接收
     return ['status'=>$status, 'message'=>$result, 'data'=>$data];
-
-
-
-
-
   }
   //退出登陆
   public function logout(){
