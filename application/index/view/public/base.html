@@ -1,24 +1,26 @@
-{include file="public/meta" /}
+{include file='public/meta' /}
 
-{block name="seo"}
-  这里是网站标是在键字与描述
-  这里的内容会被D:\phpstudy_pro\WWW\edu\application\index\view\index\index.html文件里的内容所覆盖
+{block name='seo'}
+网站seo信息:标题/关键字/描述
+{/block}
+</head>
+<body>
+
+{block name='header'}
+{include file='public/header' /}
 {/block}
 
-{include file="public/header" /}
-
-{include file="public/menu" /}
-
-{block name="content"}
-  这里是页面主体内容
-  这里的内容会被D:\phpstudy_pro\WWW\edu\application\index\view\index\index.html文件里的内容所覆盖
+{block name='menu'}
+{include file='public/menu' /}
+{/block}
+{block name='content'}
+页面内容
 {/block}
 
-{include file="public/footer" /}
+{include file='public/footer' /}
 
-{block name="js"}
-  这里是脚本内容
-  这里的内容会被D:\phpstudy_pro\WWW\edu\application\index\view\index\index.html文件里的内容所覆盖
+{block name='js'}
+
 {/block}
 </body>
 </html>
