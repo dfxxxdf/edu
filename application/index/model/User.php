@@ -12,8 +12,6 @@ class User extends Model
     //设置软删除字段
     //只有该字段为NULL,该字段才会显示出来
     protected $deleteTime = 'delete_time';
-
-
     // 保存自动完成列表
     protected $auto = [
         'delete_time' => NULL,
@@ -26,7 +24,10 @@ class User extends Model
     ];
     // 更新自动完成列表
     protected $update = [];
-    // 是否需要自动写入时间戳 如果设置为字符串 则表示时间字段的类型
+  /**
+   * 开启自动写入时间戳
+   * 无论是新增还是更新都会蒋当前的时间填入到表中的两个字段(create_time、update_time)中
+   */
     protected $autoWriteTimestamp = true; //自动写入
     // 创建时间字段
     protected $createTime = 'create_time';

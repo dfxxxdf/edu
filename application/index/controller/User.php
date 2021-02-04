@@ -86,8 +86,7 @@ class User extends Base{
         $this -> view -> assign('keywords', 'PHP中文网教学系统');
         $this -> view -> assign('desc', '教学案例');
 
-        $this -> view -> count = UserModel::count();
-
+        $this -> view -> count = UserModel::count(); //也就是数据库里有多少条数据
         //判断当前是不是admin用户
         //先通过session获取到用户登陆名
         $userName = Session::get('user_info.name');
@@ -98,8 +97,6 @@ class User extends Base{
             //非admin只能看自己信息,数据要经过模型获取器处理
             $list = UserModel::all(['name'=>$userName]);
         }
-
-
         $this -> view -> assign('list', $list);
         //渲染管理员列表模板
         return $this -> view -> fetch('admin_list');
@@ -135,21 +132,20 @@ class User extends Base{
         //获取表单返回的数据
 //        $data = $request -> param();
         $param = $request -> param();
-
         //去掉表单中为空的数据,即没有修改的内容
         foreach ($param as $key => $value ){
             if (!empty($value)){
                 $data[$key] = $value;
+
             }
         }
-
         $condition = ['id'=>$data['id']] ;
         $result = UserModel::update($data, $condition);
-
         //如果是admin用户,更新当前session中用户信息user_info中的角色role,供页面调用
         if (Session::get('user_info.name') == 'admin') {
-            Session::set('user_info.role', $data['role']);
+            Session::set('user_info.role', $param['role']);
         }
+
 
 
         if (true == $result) {

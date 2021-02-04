@@ -12,7 +12,6 @@ class Grade extends Base
     {
         //获取所有班级表数据
         $grade = GradeModel::all();
-
         //获取记录数量
         $count = GradeModel::count();
         //遍历grade表
@@ -30,10 +29,8 @@ class Grade extends Base
             //每次关联查询结果,保存到数组$gradeList中
             $gradeList[] = $data;
         }
-
         $this -> view -> assign('gradeList', $gradeList);
         $this -> view -> assign('count', $count);
-
         return $this -> view -> fetch('grade_list');
     }
 

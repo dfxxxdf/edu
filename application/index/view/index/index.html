@@ -1,19 +1,13 @@
 ﻿{extend name='public/base' /}
-
-
 {block name='seo'}
 <title>{$title|default='页面标题'}</title>
 <meta name="keywords" content="{$keywords|default='页面关键字'}">
 <meta name="description" content="{$desc|default='页面描述'}">
-
 {/block}
-
-
-
 
 {block name='content'}
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a> 
+	<nav class="breadcrumb"><i class="Hui-iconfont"></i> <a href="/" class="maincolor">首页</a>
 		<span class="c-999 en">&gt;</span>
 		<span class="c-666">运行环境</span>
 		<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -75,7 +69,7 @@
 </article>
 		<footer class="footer">
 			<p>PHP中文网ThinkPHP5实战系列课程<br> 本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
-</footer>
+		</footer>
 </div>
 </section>
 {/block}
