@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8e21972-c7f5-427e-b221-933c1b92b29d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ThinkPHP5实战之[教学管理系统].xmind" beforeDir="false" afterPath="$PROJECT_DIR$/ThinkPHP5实战之[教学管理系统].xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Grade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Grade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/controller/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/model/Grade.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/model/Grade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/model/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/model/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/model/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/model/Teacher.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/model/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/index/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/index/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/index/view/public/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/view/public/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="f8e21972-c7f5-427e-b221-933c1b92b29d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/index/model/Grade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="410">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#36#52#0#PHP" expanded="true" />
               </folding>
@@ -259,12 +248,12 @@
       <updated>1612281735180</updated>
       <workItem from="1612281736466" duration="2000" />
       <workItem from="1612320981923" duration="2088000" />
-      <workItem from="1612405769570" duration="19451000" />
+      <workItem from="1612405769570" duration="19749000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21541000" />
+    <option name="totallyTimeSpent" value="21839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -535,8 +524,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/index/model/Grade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="410">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#36#52#0#PHP" expanded="true" />
           </folding>
