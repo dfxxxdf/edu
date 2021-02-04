@@ -5,11 +5,9 @@ use think\Request;
 use app\index\model\User as UserModel;
 use think\Session;
 
-class User extends Base
-{
+class User extends Base{
     //登陆界面
-    public function login()
-    {
+    public function login(){
         $this -> alreadyLogin();
         $this -> view -> assign('title', '用户登录');
         $this -> view -> assign('keywords', 'php中文网');
@@ -19,35 +17,39 @@ class User extends Base
     }
 
     //登录验证
-    public function checkLogin(Request $request)
-    {
+    public function checkLogin(Request $request){
         $status = 0; //验证失败标志
         $result = '验证失败'; //失败提示信息
         $data = $request -> param();
-
         //验证规则
         $rule = [
             'name|姓名' => 'require',
             'password|密码'=>'require',
-            'captcha|验证码' => 'require|captcha'
+            'verify|验证码' => 'require|captcha'
         ];
+//      自定义验证失败的提示信息
+      $msg=[
+          'name' => ['require'=>'用户名不能为空，请检查'],
+          'password' => ['require'=>'密码不能为空，请检查'],
+          'verify' => [
+              'require'=>'验证码不能为空，请检查',
+              'captcha' => '验证码错误',
+          ],
+      ];
 
-        //验证数据 $this->validate($data, $rule, $msg)
-        $result = $this -> validate($data, $rule);
 
+        $result = $this -> validate($data,$rule,$msg);
         //通过验证后,进行数据表查询
         //此处必须全等===才可以,因为验证不通过,$result保存错误信息字符串,返回非零
-        if (true === $result) {
-
+        if ($result === true) {
             //查询条件
             $map = [
                 'name' => $data['name'],
                 'password' => md5($data['password'])
             ];
-
             //数据表查询,返回模型对象
             $user = UserModel::get($map);
-            if (null === $user) {
+            if ($user == null) {
                 $result = '没有该用户,请检查';
             } else {
                 $status = 1;
@@ -63,6 +65,8 @@ class User extends Base
         }
         return ['status'=>$status, 'message'=>$result, 'data'=>$data];
     }
+
+
 
     //退出登陆
     public function logout()
